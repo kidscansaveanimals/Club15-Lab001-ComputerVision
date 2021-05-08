@@ -105,13 +105,17 @@ Now we can build our classifier! navigate to [https://www.customvision.ai](https
 
     ![Custom Vision New Project](images/CustomVision-04.png)
 
+1. Select your Azure Subscription  
+
+    ![Custom Vision New Project](images/CustomVision-05.png)
+
 1. Create a **Resource Group**  
 
     Resource group provides a way to organize services.  In this lab, we will create multiple services including Custom Vision.  We will create all resources in the **Resource Group**
 
     Click `create new`  
 
-    ![Custom Vision New Resource Group](images/CustomVision-05.png)
+    ![Custom Vision New Resource Group](images/CustomVision-06.png)
 
 1. Give a name to a new resource group and select location  
     Then click `Create resource group` to create a new resource group
@@ -129,7 +133,7 @@ Now we can build our classifier! navigate to [https://www.customvision.ai](https
 1. Fill out information for the new project  
     Then Click `Create resource`
 
-    ![Custom Vision New Resource Group](images/CustomVision-06.png)
+    ![Custom Vision New Resource Group](images/CustomVision-08.png)
 
     | Item           | Value                                                                               |
     |----------------|-------------------------------------------------------------------------------------|
@@ -140,10 +144,20 @@ Now we can build our classifier! navigate to [https://www.customvision.ai](https
     | Location       | Select a location nearest to you. Pick the same location as the new resource group. |
     | Pricing Tier   | S0                                                                                  |
 
+1. Give a name to a new project and optional description  
+    Then select a new resource created earlier.  Once a resource is selected, you will see more options.
+
+    ![Custom Vision New Project](images/CustomVision-09.png)
+
+    | Setting              | Value                                                                              |
+    |----------------------|------------------------------------------------------------------------------------|
+    | Name                 | Fruit Project                                                                      |
+    | Description          | Add a description of the classifier (example shown in image above)                 |
+
 1. Fill out information to create a new Custom Vision project  
     Then click `Create project` to create a new project
 
-    ![Custom Vision New Project](images/CustomVision-08.png)
+    ![Custom Vision New Project](images/CustomVision-10.png)
 
     | Setting              | Value                                                                              |
     |----------------------|------------------------------------------------------------------------------------|
@@ -170,25 +184,25 @@ Now you can start adding images with tags to create your first machine learning 
 
 1. Open Fruit Project in your browser, then click `Add images`
 
-    ![Custom Vision Add Images](images/CustomVision-09.png)
+    ![Custom Vision Add Images](images/CustomVision-11.png)
 
 1. Select the folder you unzipped Fruit.zip file
 
     E.g. C:\Fruit
 
-    ![Custom Vision Add Images Folder](images/CustomVision-10.png)
+    ![Custom Vision Add Images Folder](images/CustomVision-12.png)
 
 1. Select folder `apple`, then select all images, click `Open` to upload all apple images
 
-    ![Custom Vision Add Images Folder](images/CustomVision-11.png)
+    ![Custom Vision Add Images Folder](images/CustomVision-13.png)
 
 1. Add the tag 'Apple' then click `Upload 10 files`  
 
-    ![Custom Vision Add Images Tag](images/CustomVision-12.png)
+    ![Custom Vision Add Images Tag](images/CustomVision-14.png)
 
 1. Confirm 10 images are upload
 
-    ![Custom Vision Add Images Tag](images/CustomVision-13.png)
+    ![Custom Vision Add Images Tag](images/CustomVision-15.png)
 
 #### You just showed 10 images and taught they are called **Apple**.
 
@@ -196,13 +210,13 @@ Let's teach other fruits too!
 
 To teach more fruits, click `Add images` then repeat the same step above.
 
-![Custom Vision Add Images Tag](images/CustomVision-14.png)
+![Custom Vision Add Images Tag](images/CustomVision-16.png)
 
 #### Now you taught Apples, Bananas, Pineapples, and orange.
 
 Make sure you see 4 fruits and each with 10 pictures.  
 
-![Custom Vision Upload Done](images/CustomVision-15.png)
+![Custom Vision Upload Done](images/CustomVision-17.png)
 
 ### 4. Train Model
 
@@ -214,17 +228,17 @@ Now you are ready to train your model on the fruit image data you have uploaded.
 
     For this lab, you can use the "Quick Training" option.
 
-    ![Custom Vision Upload Done](images/CustomVision-16.png)
+    ![Custom Vision Upload Done](images/CustomVision-18.png)
 
 1. Wait until the training completes
 
     Training takes a few minutes.
 
-    ![Custom Vision Training](images/CustomVision-17.png)
+    ![Custom Vision Training](images/CustomVision-19.png)
 
     Once the training process is complete, Computer Vision will show you machine learning evaluation metrics for your model.
 
-    ![Custom Vision Training Done](images/CustomVision-18.png)
+    ![Custom Vision Training Done](images/CustomVision-20.png)
 
 ### 5. Test Machine Learning Model
 
@@ -244,11 +258,11 @@ The machine learning model answers to the quiz with the name (tag) with confiden
 
 <https://github.com/aiadvocates/Fruit-Dataset/raw/main/test/apple.jpg>
 
-![Custom Vision Quick Test](images/CustomVision-19.png)
+![Custom Vision Quick Test](images/CustomVision-21.png)
 
 E.g.  The machine learning says this image is apple with 96.7% confidence.
 
-![Custom Vision Quick Test](images/CustomVision-20.png)
+![Custom Vision Quick Test](images/CustomVision-22.png)
 
 > [!TIP]  
 > Give more quiz with other images, or search online for other images to see how the model performs.  
@@ -287,19 +301,19 @@ Let's convert your machien learning model to TensorFlow.js format.  This process
 1. Click on Export
 1. Click on TensorFlow
 
-    ![Custom Vision Model Export](images/CustomVision-21.png)
+    ![Custom Vision Model Export](images/CustomVision-23.png)
 
 1. In the dropdown box select TensorFlow.js
 
-    ![Custom Vision Model Export to TensorFlow.js](images/CustomVision-22.png)
+    ![Custom Vision Model Export to TensorFlow.js](images/CustomVision-24.png)
 
 1. Click Export (Wait a few seconds for the model to be ready for export)
 
-    ![Custom Vision Model Export](images/CustomVision-23.png)
+    ![Custom Vision Model Export](images/CustomVision-25.png)
 
 1. Click Download
 
-    ![Custom Vision Model Download](images/CustomVision-24.png)
+    ![Custom Vision Model Download](images/CustomVision-26.png)
 
 > [!TIP]  
 > Now you should have received a .zip file with a long name.
