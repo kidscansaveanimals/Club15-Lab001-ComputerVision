@@ -331,6 +331,8 @@ Click the blue `Deploy to Azure` button below to start the deployment of a WebAp
 
 After clicking the button, you should see the screen below.
 
+This web site is called **Azure Portal**.
+
 > [!IMPORTANT]  
 > Please make sure you are successfully logged in to Azure when prompted.
 
@@ -350,9 +352,7 @@ After clicking the button, you should see the screen below.
 
 1. Click `Review + Create`  
 
-    Azure portal checks a few things before start deploying.
-
-1. Click `Create`
+    Azure portal checks a few things before start deploying.  Double check your settings then click `Create`
 
     ![Deploy ARM Template Create](images/WebApp-02.png)
 
@@ -370,7 +370,7 @@ Let's find the address of WebApp.
 
     ![Deploy ARM Template Complete](images/WebApp-04.png)
 
-    In the resource group, you should see 3 items.  (These are called resources).
+    In the resource group, you should see 3 items.  Each of them is called **Azure resource**.
 
     - App Service Plan : For WebApp
     - App Service : For WebApp
@@ -380,6 +380,8 @@ Let's find the address of WebApp.
 
     This item should have the same name as you entered in the steps before. (Like: club15-maya or club15-yourName)
 
+    Clicking the name takes you to App Service's detailed page, where you can find address of your WebApp.
+
     ![Deploy ARM Resource Group](images/WebApp-05.png)
 
 1. Access the WebApp by clicking `URL`  
@@ -388,7 +390,10 @@ Let's find the address of WebApp.
 
     ![Deploy ARM App Service](images/WebApp-06.png)
 
-1. The first time it may take 30 seconds or so but you should see :
+1. You should be able to access your WebApp
+
+    > [!CAUTION]  
+    > The first time it may take a few minutes to set up.
 
     ![Deploy ARM WebApp](images/WebApp-07.png)
 
@@ -396,10 +401,14 @@ Let's find the address of WebApp.
 
 Your WebApp is ready!  
 
-Let's upload your machine learning model you downloaded earlier.
+Let's upload your machine learning model you downloaded earlier so your WebApp can recognize fruits!
 
 1. Click `Choose File`
 1. Select the zip file you have downloaded in the previous step. (The one with the long file name.)
+
+    > [!TIP]  
+    > If you are using Windows PC, your model file should be in `Download` folder.
+
 1. Click `Upload`
 
 ![Deploy ARM WebApp](images/WebApp-08.png)
