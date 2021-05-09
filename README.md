@@ -3,240 +3,434 @@
 Hi everyone and welcome!
 In this tutorial you are going to create a Machine Learning model that can identify an object that you hold in front of a camera.
 
-# Background Concept 
+## Background Concept
+
 Before we get started, let's learn about "why" you would do this in the first place.
-The short answer is, using machine learning teaches the camera to "see." It doesn’t really see but the model inside of it makes it intelligent and can detect objects it is looking for.
+The short answer is, using machine learning teaches the camera to **look**.  Cameras just see pictures through lens but the model inside of it makes it intelligent and can identify objects it is looking for.
 
-# Let’s walk through an example that you will learn how to build in this lab using fruit.
-The camera is pointing at some fruit.  
-Without any machine learning on your camera, you will just see a video recording of fruit.  
-**How does anyone learn anything?**  
-Think of when you were young before you could read. 
-These are the steps you used to learn:
-* You would be shown a flash card with a picture on it or you were given an object to feel.   
-* The object was an Apple. 
-* Next to the picture was written the word “Apple” or it was written in braille for you. 
- 
-**This** is how you learned to connect the word to the object in the picture. 
+## Let’s walk through an example that you will learn how to build in this lab using fruit
 
-Teaching a computer to know what an apple is **works the same way**.   
+- The camera is pointing at some fruit.  
+- Send the image to the machine learning **model**
+- The machine learning model tells you what's in the image
 
-You show it a lot of pictures and tell it those are apples.  Then, to put it simply, it makes a little program that you can install on your camera.  Once you do, if your camera could talk, it would say, “I am now smart enough to know when I see an apple come into view.”
-That is called *“training the model.”*  In this lab you will “train the model” to identify fruit.
+Without any machine learning on your camera, you will just see an image of fruit.  The machine learning model makes the camera intelligent.
 
-# From Apples to Elephants
-Once you complete the steps in this lab, which uses fruit as an example, there is conceptually no difference between whether you taught the computer so know apples, oranges, cats, or elephants. 
-Like learning to ride a bike.  
-Once you know the basics, you can ride all sorts of different bikes using the same concepts of pedaling, balancing, steering, and ringing a bell to make sure people know you are coming their way. 
+- Camera lens is like your eyes  
+    When you are looking at something but not paying attention, you do not recognize.  You just see them.  (or just sensing)
+- Machine learning model is like your brain  
+    When you are paying attention, you send what you see to your brain so you can recognize items.  (or Observing or recognizing)
+
+### How does anyone learn anything?
+
+Think of when you were young before you could read. These are the steps you used to learn:
+
+- You would be shown a flash card with a picture on it or you were given an object to feel.
+- The object was an Apple.
+- Next to the picture was written the word "Apple" or it was written in braille for you.
+
+**This** is how you learned to connect the word to the object in the picture.
+
+Teaching a computer to know what an apple is **works the same way**.
+
+You show it a lot of pictures and tell it those are apples.  This is called **tagging**.  Just like you make connection between a picture of apple and letter "**A** **P** **P** **L** **E**", computer learns what it sees and what it is called.  Then, to put it simply, it makes a little program that you can install on your camera.  Once you do, if your camera could talk, it would say, "I am now smart enough to know when I see an apple come into view."  
+
+That is called "**training the model**".  
+
+In the first section of this lab you will how to train the model to identify fruit.
+
+## From Apples to Elephants
+
+Once you complete the steps in this lab, which uses fruit as an example, there is conceptually no difference between whether you taught the computer to know apples, oranges, cats, or elephants.
+
+Like learning to ride a bike.
+
+Once you know the basics, you can ride all sorts of different bikes using the same concepts of pedaling, balancing, steering, and ringing a bell to make sure people know you are coming their way.  
+
 Just takes some practice and in no time, you are on your way!
 
-# How do Camera Traps work?
+## How do Camera Traps work?
+
 They work the same way!  
-The scientist trains the machine learning model to identify something, like a Snow Leopard.   
-Then that model is put on the smart camera and runs on it. Every picture the camera takes through its lens is sent to the model and is looked at just waiting to see if a picture is a snow leopard.  
+
+The scientist trains the machine learning model to identify something, like a Snow Leopard. Then that model is put on the smart camera and runs on it. Every picture the camera takes through its lens is sent to the model and is looked at just waiting to see if a picture is a snow leopard.  
 
 It would go something like this, if you can imagine a camera could talk:
 
-1. **Camera:** “just waiting here… sending every snap shot I see through a machine learning model I was given… nothing much going on today… “
-1. **The ML Model inside the camera:** “nope. Nope. Nope. Nothing to see here. Nope. Nothing I know.”
-1. *The Snow Leopard walks by.*
-1. **Camera:** “still sending everything I see to my friend the ML model”
-1. **The ML Model inside the camera:** “Wait… waaaaaait… I know this… OMGOSH! I KNOW WHAT THAT IS! I WAS TRAINED FOR THIS! THAT IS A SNOW LEOPARD!!!!”
+- **Camera:**  
+    "just waiting here… sending every snapshot I see through my lens to a machine learning model I was given… "
 
-So that’s what a camera trap is doing, waiting to see something it recognizes using a little program you trained to identify the object.  
+- **The ML Model inside the camera:**  
+    "Nope. Nope. Nope. Nothing to see here. Nope. Nothing I know.  Nothing much going on today…"  
+  
+- *The Snow Leopard walks by.*  
+
+- **Camera:**  
+    "Still sending everything I see to my friend the machine learning model"
+
+- **The ML Model inside the camera:**  
+    "Wait… waaaaaait… I know this… OMGOSH! I KNOW WHAT THAT IS! I WAS TRAINED FOR THIS! THAT IS A SNOW LEOPARD!!!!"
+
+So that's what a camera trap is doing, waiting to see something it recognizes using a little program you trained to identify the object.  
 In a future lab we will learn how the camera acts once an object is identified and tells the rangers.
 
-You can learn more about how camera traps are used in the wild by listening to the Club 15 interview with Dr. Eric Dinerstein.
+You can learn more about how camera traps are used in the wild by listening to the [Club 15 interview](https://kidscansaveanimals.com/episodes/eric-dinerstein/) with Dr. Eric Dinerstein.
 
-# LET'S GO!
+## LET'S GO\!
 
+### 1. Getting an Azure Subscription
 
-## 1. Setting up Azure
-
-### Getting an Azure Subscription
 To run this tutorial you need to have an Azure Subscription. If you are a minor you should ask one of your parents or a guardian to help you with signing up. If you are above 13 years old you might be able to use the [Microsoft Azure for Students Starter Offer](https://azure.microsoft.com/offers/ms-azr-0144p/?WT.mc_id=aiml-25242-heboelma)
 
 To sign up for an Azure Subscription [Click here](https://azure.microsoft.com/free/?WT.mc_id=aiml-25242-heboelma)
 
-### Create Resource Group
+### 2. Build a fruit classifier project
 
-First create a Resource Group.
+Now we can build our classifier! navigate to [https://www.customvision.ai](https://www.customvision.ai/?WT.mc_id=aiml-25242-heboelma).
 
-* Go to the [Azure Portal](https://portal.azure.com/?WT.mc_id=aiml-25242-heboelma) main dashboard.
-* Click 'Create a Resource' in the top left
-* Search for 'Resource group'
-* Enter details to create:
-  * A name for the resource group
-  * Select the location
-  * Click Create
+1. Navigate to [https://www.customvision.ai](https://www.customvision.ai/?WT.mc_id=aiml-25242-heboelma)
 
-![Resource Group Details](images/create-resource-group.png)  
+    ![Custom Vision Sign in](images/CustomVision-01.png)
 
-### Create Custom Vision instance
+1. Sign in with your Azure account credentials.
+1. Accept **Terms of Service**
 
-Now you will create a Custom Vision instance in your Azure account.
+    ![Custom Vision Terms](images/CustomVision-02.png)
 
-* Go to your created Resource group
-* Click +Add
-* Search for Custom Vision
-* Click Create
-* Enter details to create:
-  * A name for the service
-  * Select your subscription
-  * Select the data center location (in this example West Europe, but you can select your own region that is closest to where you live)
-  * Choose the S0 tier for both 'Prediction pricing tier' and Training pricing tier. *F0 is possible, but you can run in some errors later on.*
-  * Select your created Resource group and make sure it is in the **same data centre location** (in this case 'customvision-demo' in 'West Europe')
-  * Click Create
+1. Click `NEW PROJECT` to create a new project  
 
+    ![Custom Vision New Project](images/CustomVision-03.png)
 
-## 2. Build a fruit classifier
+1. Click `create new`
 
-Now we can build our classifier, navigate to [https://www.customvision.ai](https://www.customvision.ai/?WT.mc_id=aiml-25242-heboelma) and choose sign in. Sign in with your Azure account credentials.
+    ![Custom Vision New Project](images/CustomVision-04.png)
 
-> Accept the terms and conditions box to continue.
+1. Select your Azure Subscription  
 
-### Create Project
+    ![Custom Vision New Project](images/CustomVision-05.png)
 
-Once loaded, choose 'New Project' which opens a window to enter details:
+1. Create a **Resource Group**  
 
-* Name: Fruit Project
-* Description: add a description of the classifier (example shown in image below)
-* Resource Group: choose the resource group you created for your custom vision service in in the previous step.
-* Project Types: Classification
-* Classification Types: Multiclass (Single tag per image)
-* Domains: Food (compact)
-* Export Capabilities: Basic platforms
+    Resource group provides a way to organize services.  In this lab, we will create multiple services including Custom Vision.  We will create all resources in the **Resource Group**
 
-![Create Custom Vision Project](images/createClassifier.png)
+    Click `create new`  
 
-Click on 'Create Project' and you will land on an empty workspace.
+    ![Custom Vision New Resource Group](images/CustomVision-06.png)
 
-### Add training images
+1. Give a name to a new resource group and select location  
+    Then click `Create resource group` to create a new resource group
 
-Now you can start adding images and assigning them tags to create our image classifier.
+    ![Custom Vision New Resource Group](images/CustomVision-07.png)
 
-* Download and unzip the [Fruit dataset](https://github.com/aiadvocates/Fruit-Dataset/raw/main/fruit.zip)
+    | Item           | Value                                                                               |
+    |----------------|-------------------------------------------------------------------------------------|
+    | Name           | Name of the resource group.  E.g. Club15-ComputerVision                             |
+    | Location       | Select a location nearest to you. Pick the same location as the new resource group. |
 
-* In the top left, select *'Add images'*, browse for the first folder of images - apple - and select all the images in the folder.
+    > [!TIP]  
+    > You can see locations in a map at <https://azure.microsoft.com/en-us/global-infrastructure/geographies/>  
 
-* Add the tag 'Apple' to the apple images and select 'Upload files'
+1. Fill out information for the new project  
+    Then Click `Create resource`
 
-Once successful, you receive a confirmation message and you should see that your images are now available in the workspace.
+    ![Custom Vision New Resource Group](images/CustomVision-08.png)
 
-![Upload images of apples](images/upload.png)
+    | Item           | Value                                                                               |
+    |----------------|-------------------------------------------------------------------------------------|
+    | Name           | Name of the project.  E.g. Club15-Fruit-Project                                     |
+    | Subscription   | Select your Azure subscription                                                      |
+    | Resource Group | Select the resource group just created.  E.g. Club15-ComputerVision                 |
+    | Kind           | Cognitive Service                                                                   |
+    | Location       | Select a location nearest to you. Pick the same location as the new resource group. |
+    | Pricing Tier   | S0                                                                                  |
 
-Now complete the same steps of uploading and tagging images for the other fruit in the folder. For each type of fruit:
+1. Give a name to a new project and optional description  
+    Then select a new resource created earlier.  Once a resource is selected, you will see more options.
 
-* Click 'Add images'
-* Select all the images
-* Add the class label (Banana, Orange, etc.)
-* Choose upload
-* Confirm images uploaded into the workspace
+    ![Custom Vision New Project](images/CustomVision-09.png)
 
-Now you should have all categories uploaded and on the left hand side you can see your fruit classes and you can filter depending on type of fruit.
+    | Setting              | Value                                                                              |
+    |----------------------|------------------------------------------------------------------------------------|
+    | Name                 | Fruit Project                                                                      |
+    | Description          | Add a description of the classifier (example shown in image above)                 |
 
-![Upload images of apples](images/uploadDone.png)
+1. Fill out information to create a new Custom Vision project  
+    Then click `Create project` to create a new project
 
+    ![Custom Vision New Project](images/CustomVision-10.png)
 
-### Train Model
+    | Setting              | Value                                                                              |
+    |----------------------|------------------------------------------------------------------------------------|
+    | Name                 | Fruit Project                                                                      |
+    | Description          | Add a description of the classifier (example shown in image above)                 |
+    | Resource             | Choose the resource you created in the previous step.   E.g. Club15-Fruit-Project  |
+    | Project Type         | Classification                                                                     |
+    | Classification Types | Multiclass (Single tag per image)                                                  |
+    | Domains              | Food (compact)                                                                     |
+    | Export Capabilities  | Basic platforms                                                                    |
 
-Now you are ready to train your model on the fruit image data you have uploaded. Select the green **'Train'** button in the top right corner. For this demo, you can use the "Fast Training" option. This will take a few minutes.
+#### Your new Custom Vision project is ready for you to train a machine learning model
 
-Once the training process is complete it will take you to the Performance tab. Here you will receive machine learning evaluation metrics for your model. 
-*Metrics means "the results" and how well it did.*
+Let's start training a machine learning model!
+  
+### 3. Teach the machine learning model pictures of fruits and their names
 
-![Evaluation Medtrics](images/trainMetrics.png)
+Now you can start adding images with tags to create your first machine learning model.
 
+1. Click [Fruit dataset](https://github.com/aiadvocates/Fruit-Dataset/raw/main/fruit.zip) to download `fruit.zip` file
+1. Unzip `fruit.zip` to your computer
+  
+    e.g. C:\fruit
 
-### Test Model
+1. Open Fruit Project in your browser, then click `Add images`
 
-Now you have a model, you need to test the model. Choose the 'Quick Test' button in the top right *(next to the train button)* this will open a window where you can browse for a local image or enter a web URL.
+    ![Custom Vision Add Images](images/CustomVision-11.png)
 
-Use one of the image links below (these are images the model has not been trained on) and paste the link in the Image URL field. The image will be analysed and a result returned of what Fruit the model thinks it is (prediction tag) and the models confidence of its result (prediction probability).
-```
-https://github.com/aiadvocates/Fruit-Dataset/raw/main/test/apple.jpg
-```
+1. Select the folder you unzipped Fruit.zip file
 
-![Quick Test](images/quickTest.png)
+    E.g. C:\Fruit
 
-> Repeat this process for other image in the test folder, or search online for other images to see how the model performs.
+    ![Custom Vision Add Images Folder](images/CustomVision-12.png)
 
-```
-https://github.com/aiadvocates/Fruit-Dataset/raw/main/test/apple.jpg
-https://github.com/aiadvocates/Fruit-Dataset/raw/main/test/banana.jpg
-https://github.com/aiadvocates/Fruit-Dataset/raw/main/test/orange.jpg
-https://github.com/aiadvocates/Fruit-Dataset/raw/main/test/pineapple.jpg
-```
+1. Select folder `apple`, then select all images, click `Open` to upload all apple images
 
-Now you have trained a model that can see the difference between 4 fruits. 
-Feel free to take out your camera and add an other fruit, or maybe create a completely different model. 
+    ![Custom Vision Add Images Folder](images/CustomVision-13.png)
+
+1. Add the tag 'Apple' then click `Upload 10 files`  
+
+    ![Custom Vision Add Images Tag](images/CustomVision-14.png)
+
+1. Confirm 10 images are upload
+
+    ![Custom Vision Add Images Tag](images/CustomVision-15.png)
+
+#### You just showed 10 images and taught they are called **Apple**.
+
+Let's teach other fruits too!
+
+To teach more fruits, click `Add images` then repeat the same step above.
+
+![Custom Vision Add Images Tag](images/CustomVision-16.png)
+
+#### Now you taught Apples, Bananas, Pineapples, and orange.
+
+Make sure you see 4 fruits and each with 10 pictures.  
+
+![Custom Vision Upload Done](images/CustomVision-17.png)
+
+### 4. Train Model
+
+Now you are ready to train your model on the fruit image data you have uploaded.  Just like all of us, we have to **remember** what we just learned.  By looking at different kinds of apples such as red vs. green, different shapes, etc, we learn more about apples.  The machine learning works the same way.  We just showed pictures of fruits and their names, but the machine learning model also needs to learn and remember.  This process is called **Training the model**.
+
+#### Let's train your machine learning model
+
+1. Click the green `gear icon` in the top right corner.  
+
+    For this lab, you can use the "Quick Training" option.
+
+    ![Custom Vision Upload Done](images/CustomVision-18.png)
+
+1. Wait until the training completes
+
+    Training takes a few minutes.
+
+    ![Custom Vision Training](images/CustomVision-19.png)
+
+    Once the training process is complete, Computer Vision will show you machine learning evaluation metrics for your model.
+
+    ![Custom Vision Training Done](images/CustomVision-20.png)
+
+### 5. Test Machine Learning Model
+
+Now your machine learning says it learned 4 fruits.  Let's give it some quiz to see how well it remembered.  
+
+Choose the 'Quick Test' button in the top right *(next to the train button)* this will open a window where you can specify a picture for the quiz.  
+
+1. Use one of the image links below.  
+    These are not used to train the machine learning, so they are new to the machien learning.
+1. Paste the link in the Image URL field.  
+
+The machine learning model saw images and tell what's in the image.
+
+The image will be sent to the machine learning model.  The machine learning then evaluate the image.  This process is called **Analysis**.
+
+The machine learning model answers to the quiz with the name (tag) with confidence level.  This process is called **Inference** and the answer is called **Inference Result**.
+
+<https://github.com/aiadvocates/Fruit-Dataset/raw/main/test/apple.jpg>
+
+![Custom Vision Quick Test](images/CustomVision-21.png)
+
+E.g.  The machine learning says this image is apple with 96.7% confidence.
+
+![Custom Vision Quick Test](images/CustomVision-22.png)
+
+> [!TIP]  
+> Give more quiz with other images, or search online for other images to see how the model performs.  
+> <https://github.com/aiadvocates/Fruit-Dataset/raw/main/test/apple.jpg>  
+> <https://github.com/aiadvocates/Fruit-Dataset/raw/main/test/banana.jpg>
+> <https://github.com/aiadvocates/Fruit-Dataset/raw/main/test/orange.jpg>
+> <https://github.com/aiadvocates/Fruit-Dataset/raw/main/test/pineapple.jpg>
+
+Now you have trained a model that can observe the difference between 4 fruits.  
+Feel free to take out your camera and add an other fruit, or maybe create a completely different model.
 
 Ideas for other models to make using pictures:
-* Your pets - Imagine a camera that you could tell which pet was sleeping in your bed!
-* Wild animals you like - Just like a real life use case to protect animals!
-* Different toys!
 
+- Your pets - Imagine a camera that you could tell which pet was sleeping in your bed!
+- Wild animals you like - Just like a real life use case to protect animals!
+- Different toys!
 
-## 3. Use your model in the real world
-In this last part we are going to take the model you have created in step 2 and use it in an application that uses your camera and the model. 
+## Use your machine learning model in the real world
 
-> The goal is to hold an apple in front of your webcam and the application will tell you if it is a apple or not.
+When you learned fruits, you were able to pick right fruits when you went to a grocery store, for example.  If you don't use your knowledge, there is very little value.  So let's use your machine learning model in the real world scenario, similar to what camera traps do.
 
+In this last part we are going to take your machine learning model and use it in an web site.  The web site is running an application.  This is called **WebApp**.  The WebApp uses webcam and your machine learning model, and tells what it sees through camera.
 
-### Download the model
-In this step we are going to export the model as a TensorFlow.js model. 
+The goal is to hold an apple in front of your webcam and the application will tell you if it is a apple or not.
 
-- Click on Performance in the top menu
-- Click on Export
-- Click on TensorFlow
-- In the dropdownbox select TensorFlow.js
-- Click Export (Wait a few seconds for the model to be ready for export)
-- Click Download
+### 1. Download the model
 
-![Export model](images/export.png)
+WebApp needs to use your machine learning model.  Once WebApp is up and running, we need to upload your machine learning model.  
+Let's download your machine learning model so we can upload to your WebApp later.
 
+There are many techniques for Machine Learning models.  These techniques are often referred to as machine learning frameworks or formats.  In this lab, we are going to use **TensorFlow.js** format.
+
+Let's convert your machien learning model to TensorFlow.js format.  This process is called **Exporting** model.
+
+1. Click on Performance in the top menu
+1. Click on Export
+1. Click on TensorFlow
+
+    ![Custom Vision Model Export](images/CustomVision-23.png)
+
+1. In the dropdown box select TensorFlow.js
+
+    ![Custom Vision Model Export to TensorFlow.js](images/CustomVision-24.png)
+
+1. Click Export (Wait a few seconds for the model to be ready for export)
+
+    ![Custom Vision Model Export](images/CustomVision-25.png)
+
+1. Click Download
+
+    ![Custom Vision Model Download](images/CustomVision-26.png)
+
+> [!TIP]  
 > Now you should have received a .zip file with a long name.
 
-### Setup the WebApp
-In this step we are going to run a simple webapp and upload the downloaded model to it.
+### 2. Setup the Web Application (WebApp)
 
-Click the button below to start the deployment of a webapplication in your Azure Subscription. **Don't worry, the webapp is using the free tier of Azure WebApps.**
+Let's set up your WebApp.  In this lab, we will install and set up a web site with an application.  This process is called **deploying service**.
+
+Click the blue `Deploy to Azure` button below to start the deployment of a WebApp in your Azure Subscription.  
+
+> [!NOTE]  
+> Don't worry, the webapp is using the **free** tier of Azure WebApps so it will not cost you money.
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Faiadvocates%2FCustomVision-Workshop%2Fmain%2Fdeployment%2Ftemplate.json)
 
-After clicking the button and assuming you are successfully logged in in Azure, you should see the screen below.
+After clicking the button, you should see the screen below.
 
-![Deploy ARM Template](images/deploy_arm.png)
+This web site is called **Azure Portal**.
 
-- Fill in the missing fields:
-**Resource group:** Select the previously created Resource group or create a new one.   
-**Region:** If you create a new resource group you can select the region closest to you.   
-**Web App Name:** Enter a name (like: club15-maya or club15-yourName), no spaces allowed.   
+> [!IMPORTANT]  
+> Please make sure you are successfully logged in to Azure when prompted.
 
-- Click "Review + Create"
-- Click "Create"
+1. Fill in the missing fields:
 
-Now you can take a 5 minute break.
-When the deployment is complete you see the message: "Your deployment is complete".
+    ![Deploy ARM Template](images/WebApp-01.png)
 
-- Click the button: "Go to resource group"
-- In this resource group you see 2 item types. An **App Service plan** and an **App Service**.
-- Click on the **App Service** Item. This item should have the same name as you entered in the steps before. (Like: club15-maya or club15-yourName)
+    | Item           | Value                                                                        |
+    |----------------|------------------------------------------------------------------------------|
+    | Subscription   | Select your Azure subscription                                               |
+    | Resource group | Select the previously created Resource group. E.g. Club15-ComputerVision     |
+    | Region         | Should be automatically selected based on your Resource Group location       |
+    | Web App Name   | Enter a name (like: club15-maya or club15-yourName), no spaces allowed.      |
 
-You should now see a screen like the image below.
+    > [!TIP]  
+    > The name of WebApp must be globally unique, meaning, only one in the world.  So be creative!
 
-![WebApp Details](images/webapp.png)
+1. Click `Review + Create`  
 
-Your webapplication is now up and running and you can now upload your model and test it!
+    Azure portal checks a few things before start deploying.  Double check your settings then click `Create`
 
-- Click on the link under URL. (Like: https://club15-maya.azurewebsites.net)
-- A webpage should open *(this can take a while the first time)*
-- Click the browse button and select the zip file you have downloaded in the previous step. The one with the long name.
-- Click "upload"
-- When the upload is complete the browsers asks to access your camera. Click "Allow"
-- On the screen you should now see your camera.
-- Go to the kitchen and pick an apple or banana and hold it in front of the camera.
+    ![Deploy ARM Template Create](images/WebApp-02.png)
 
-If everything works accoring plan, your application can now tells that it sees an apple.
+    Now you can take a 5 minute break.
 
-![WebApp Details](images/camera-app.png)
+    ![Deploy ARM Template Create Progress](images/WebApp-03.png)
+
+### 3. Access WebApp
+
+When the deployment is complete you see the message: "Your deployment is complete".  You should be able to access your WebApp with your favorite internet browser.
+
+Let's find the address of WebApp.
+
+1. Click `Go to resource group`  
+
+    ![Deploy ARM Template Complete](images/WebApp-04.png)
+
+    In the resource group, you should see 3 items.  Each of them is called **Azure resource**.
+
+    - App Service Plan : For WebApp
+    - App Service : For WebApp
+    - Cognitive Service : For Custom Vision project
+
+1. Click on the `App Service` Item
+
+    This item should have the same name as you entered in the steps before. (Like: club15-maya or club15-yourName)
+
+    Clicking the name takes you to App Service's detailed page, where you can find address of your WebApp.
+
+    ![Deploy ARM Resource Group](images/WebApp-05.png)
+
+1. Access the WebApp by clicking `URL`  
+
+    Your WebApp is now up and running and you can now upload your model and test it!
+
+    ![Deploy ARM App Service](images/WebApp-06.png)
+
+1. You should be able to access your WebApp
+
+    > [!CAUTION]  
+    > The first time it may take a few minutes to set up.
+
+    ![Deploy ARM WebApp](images/WebApp-07.png)
+
+### 4. Upload Machine Learning Model
+
+Your WebApp is ready!  
+
+Let's upload your machine learning model you downloaded earlier so your WebApp can recognize fruits!
+
+1. Click `Choose File`
+1. Select the zip file you have downloaded in the previous step. (The one with the long file name.)
+
+    > [!TIP]  
+    > If you are using Windows PC, your model file should be in `Download` folder.
+
+1. Click `Upload`
+
+![Deploy ARM WebApp](images/WebApp-08.png)
+
+### 5. Show your fruits to Machine Learning\!
+
+Your WebApp is given a new brain to identify fruits in your machine learning model.  
+
+Let's show fruits through webcam and see if WebApp can recognize fruits!
+
+1. When the upload is complete the browsers asks to access your camera. Click "Allow"
+
+    By allowing access to your webcam, you are giving eyes to WebApp.
+
+    ![Deploy ARM WebApp](images/WebApp-09.png)
+
+1. On the screen you should now see your camera
+1. Go to the kitchen and pick an apple or banana and hold it in front of the camera.
+
+    ![Deploy ARM WebApp Apple](images/WebApp-10.png)
+
+## Completed\!
+
+When WebApp can recognize (or understand) fruits in the video view, it tells you **I see : Apple** etc.  This means WebApp can now understand what it sees through webcam.
+
